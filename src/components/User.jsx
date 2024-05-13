@@ -1,21 +1,34 @@
 /** @format */
-
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateUsername } from '../redux/actions/user.actions.jsx'
+import { isValidName } from '../utils/regex.jsx'
 import '../sass/components/_User.scss'
 
 function User() {
+    /* Updates user data on profile page from state redux */
     const token = useSelector((state) => state.auth.token)
     const firstname = useSelector((state) => state.user.firstname)
     const lastname = useSelector((state) => state.user.lastname)
     const username = useSelector((state) => state.user.username)
+    /* Manages the appearance of the username modification form */
     const [display, setDisplay] = useState(true)
+    /* Get username */
     const [userName, setUserName] = useState('')
+    /* Handle error message */
+    const [errorMessage, setErrorMessage] = useState('')
+
     const dispatch = useDispatch()
 
+    /* Asynchronous username update function */
     const handleSubmitUsername = async (event) => {
         event.preventDefault()
+        if (!isValidName(userName)) {
+            setErrorMessage('Invalid username')
+            return
+        } else {
+            setErrorMessage('')
+        }
         try {
             const response = await fetch(
                 'http://localhost:3001/api/v1/user/profile',
@@ -104,6 +117,9 @@ function User() {
                                 Cancel
                             </button>
                         </div>
+                        {errorMessage && (
+                            <p className='error-message'>{errorMessage}</p>
+                        )}
                     </form>
                 </div>
             )}

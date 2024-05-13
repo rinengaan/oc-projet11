@@ -1,18 +1,18 @@
 /** @format */
-
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { userProfile } from '../../redux/actions/user.actions.jsx'
 import User from '../../components/User.jsx'
 import Account from '../../components/Account.jsx'
-import Footer from '../../components/Footer.jsx'
 import AccountItemsData from '../../data/AccountItems.json'
 import '../../sass/pages/_UserProfile.scss'
 
+/* User profile page */
 function UserProfile() {
     const token = useSelector((state) => state.auth.token)
     const dispatch = useDispatch()
 
+    /* Asynchronous function that retrieves user data and updates it with useEffect */
     useEffect(() => {
         if (token) {
             const userData = async () => {
@@ -32,6 +32,7 @@ function UserProfile() {
                         const firstname = data.body.firstName
                         const lastname = data.body.lastName
                         const username = data.body.userName
+                        /* Return user data in redux state */
                         dispatch(userProfile(firstname, lastname, username))
                     } else {
                         console.log('error while retrieving profile')
@@ -47,6 +48,7 @@ function UserProfile() {
         <div className='profile-page'>
             <main className='main bg-dark'>
                 <User />
+                {/* Return items from json file with map */}
                 {AccountItemsData.map((data) => (
                     <Account
                         key={data.id}
@@ -56,7 +58,6 @@ function UserProfile() {
                     />
                 ))}
             </main>
-            <Footer />
         </div>
     )
 }
