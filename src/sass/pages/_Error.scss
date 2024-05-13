@@ -6,7 +6,16 @@
 }
 
 .error {
-    height: 610px;
+    min-height: 610px;
+    width: 100%;
+
+    @media (max-width: 920px) {
+        min-height: 680px;
+    }
+
+    @media (min-width: 1900px) {
+        min-height: 820px;
+    }
 
     &-number {
         font-size: 288px;
