@@ -17,7 +17,7 @@ function Header() {
                 </Link>
                 <Link className='main-nav-item' to='/SignIn'>
                     <i className='fa fa-user-circle'></i>
-                    <p>Sign In</p>
+                    Sign In
                 </Link>
             </nav>
         </header>
