@@ -1,0 +1,36 @@
+header {
+    & .main-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 20px;
+
+        & a {
+            font-weight: bold;
+            color: #2c3e50;
+
+            &.router-link-exact-active {
+                color: #42b983;
+            }
+        }
+
+        &-item {
+            text-decoration: none;
+            margin-right: 0.5rem;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &-logo {
+            max-width: 100%;
+            width: 200px;
+
+            &-image {
+                max-width: 100%;
+                width: 200px;
+            }
+        }
+    }
+}
