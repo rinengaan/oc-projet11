@@ -48,6 +48,13 @@
             cursor: pointer;
         }
 
+        .error-message {
+            color: red;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 25px;
+        }
+
         #remember-me {
             cursor: pointer;
         }

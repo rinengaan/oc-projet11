@@ -1,6 +1,6 @@
 /** @format */
+
 import React from 'react'
-import Header from '../../components/Header.jsx'
 import Banner from '../../components/Banner.jsx'
 import Item from '../../components/Item.jsx'
 import Footer from '../../components/Footer.jsx'
@@ -9,7 +9,6 @@ import iconMoney from '../../assets/icons/icon-money.webp'
 import iconSecurity from '../../assets/icons/icon-security.webp'
 import FeatureItemsData from '../../data/FeatureItems.json'
 import '../../sass/pages/_Home.scss'
-
 function Home() {
     const imageData = {
         'icon-chat.webp': iconChat,
@@ -19,7 +18,6 @@ function Home() {
 
     return (
         <div className='homepage'>
-            <Header />
             <main>
                 <Banner />
                 <section className='features'>
