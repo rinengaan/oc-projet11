@@ -19,7 +19,7 @@ root.render(
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='SignIn' element={<SignIn />} />
-                <Route path='profile' element={<UserProfile />} />
+                <Route path='UserProfile' element={<UserProfile />} />
                 <Route path='*' element={<Error />} />
             </Routes>
         </Router>

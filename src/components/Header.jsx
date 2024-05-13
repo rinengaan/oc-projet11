@@ -1,7 +1,10 @@
+/** @format */
+
 import React from 'react'
-import Logo from '../assets/images/argentBankLogo.png'
+import Logo from '../assets/images/argentBankLogo.webp'
 import { Link } from 'react-router-dom'
 import '../sass/components/_Header.scss'
+
 function Header() {
     return (
         <header>
