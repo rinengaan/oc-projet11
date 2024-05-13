@@ -1,12 +1,11 @@
 /** @format */
-
 import { GET_USERPROFILE, EDIT_USERNAME } from './type.actions'
 
 /* User data recovery action */
-export const userProfile = (firstname, lastname, username) => {
+export const userProfile = (userData) => {
     return {
         type: GET_USERPROFILE,
-        payload: { firstname, lastname, username },
+        payload: userData,
     }
 }
 

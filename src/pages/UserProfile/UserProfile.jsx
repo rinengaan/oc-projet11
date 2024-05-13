@@ -6,12 +6,10 @@ import User from '../../components/User.jsx'
 import Account from '../../components/Account.jsx'
 import AccountItemsData from '../../data/AccountItems.json'
 import '../../sass/pages/_UserProfile.scss'
-
 /* User profile page */
 function UserProfile() {
     const token = useSelector((state) => state.auth.token)
     const dispatch = useDispatch()
-
     /* Asynchronous function that retrieves user data and updates it with useEffect */
     useEffect(() => {
         if (token) {
@@ -29,11 +27,17 @@ function UserProfile() {
                     )
                     if (response.ok) {
                         const data = await response.json()
-                        const firstname = data.body.firstName
-                        const lastname = data.body.lastName
-                        const username = data.body.userName
+                        const userData = {
+                            createdAt: data.body.createdAt,
+                            updatedAt: data.body.updatedAt,
+                            id: data.body.id,
+                            email: data.body.email,
+                            firstname: data.body.firstName,
+                            lastname: data.body.lastName,
+                            username: data.body.userName,
+                        }
                         /* Return user data in redux state */
-                        dispatch(userProfile(firstname, lastname, username))
+                        dispatch(userProfile(userData))
                     } else {
                         console.log('error while retrieving profile')
                     }

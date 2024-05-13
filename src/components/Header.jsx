@@ -7,8 +7,10 @@ import { logout } from '../redux/actions/auth.actions.jsx'
 import '../sass/components/_Header.scss'
 
 function Header() {
+    /* Updates user data on header component from state redux */
     const isConnected = useSelector((state) => state.auth.token)
-    const firstname = useSelector((state) => state.user.firstname)
+    const firstname = useSelector((state) => state.user.userData.firstname)
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
