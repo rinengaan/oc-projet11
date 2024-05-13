@@ -2,14 +2,12 @@
 
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import '../../sass/pages/_Error.scss'
 
 function Error() {
     return (
         <div className='error-page'>
-            <Header />
             <main>
                 <section className='error'>
                     <h1 className='error-number'>404</h1>
@@ -28,5 +26,4 @@ function Error() {
         </div>
     )
 }
-
 export default Error
