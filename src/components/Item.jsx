@@ -1,3 +1,5 @@
+/** @format */
+
 import React from 'react'
 import '../sass/components/_Item.scss'
 
@@ -14,5 +16,4 @@ function Item({ image, descriptionImage, title, description }) {
         </div>
     )
 }
-
 export default Item

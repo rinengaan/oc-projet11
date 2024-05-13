@@ -1,0 +1,43 @@
+.error-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.error {
+    height: 610px;
+
+    &-number {
+        font-size: 288px;
+        font-weight: 700;
+        color: #00bc77;
+        margin-block: 0;
+
+        @media screen and (width <=768px) {
+            font-size: 96px;
+        }
+    }
+
+    &-text {
+        margin-top: 2rem;
+    }
+
+    &-link {
+        display: flex;
+        justify-content: center;
+
+        &-button {
+            display: block;
+            width: auto;
+            padding: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            border-color: #00bc77;
+            background-color: #00bc77;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+}

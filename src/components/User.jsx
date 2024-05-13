@@ -1,3 +1,5 @@
+/** @format */
+
 import React from 'react'
 import '../sass/components/_User.scss'
 
@@ -13,5 +15,4 @@ function User({ firstname, lastname }) {
         </div>
     )
 }
-
 export default User

@@ -1,3 +1,5 @@
+/** @format */
+
 import React from 'react'
 import '../sass/components/_Footer.scss'
 

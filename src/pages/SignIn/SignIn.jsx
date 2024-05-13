@@ -1,9 +1,10 @@
+/** @format */
+
 import React from 'react'
 import Header from '../../components/Header.jsx'
 import Form from '../../components/Form.jsx'
 import Footer from '../../components/Footer.jsx'
 import '../../sass/pages/_SignIn.scss'
-
 function SignIn() {
     return (
         <div className='signin-page'>
@@ -15,5 +16,4 @@ function SignIn() {
         </div>
     )
 }
-
 export default SignIn
