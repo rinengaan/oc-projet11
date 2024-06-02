@@ -2,8 +2,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { loginFailed, loginSuccess } from '../redux/actions/auth.actions.jsx'
-import { isValidEmail, isValidPassword } from '../utils/regex.jsx'
+import { loginSuccess } from '../redux/actions/auth.actions.jsx'
 import '../sass/components/_Form.scss'
 
 function Form() {
@@ -20,41 +19,28 @@ function Form() {
     /* Asynchronous form function */
     const handleSubmit = async (event) => {
         event.preventDefault()
-        /* Handle error message */
-        if (!isValidEmail(email)) {
-            setErrorMessage('Invalid email adress')
-            return
-        }
-        if (!isValidPassword(password)) {
-            setErrorMessage('Invalid password')
-            return
-        }
-        try {
-            const response = await fetch(
-                'http://localhost:3001/api/v1/user/login',
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ email, password }),
-                }
-            )
-            if (response.ok) {
-                const data = await response.json()
-                const token = data.body.token
-                dispatch(loginSuccess(token))
-                sessionStorage.setItem('token', token)
-                if (rememberMe) {
-                    localStorage.setItem('token', token)
-                }
-                navigate('/profile')
-            } else {
-                const error = 'Incorrect email/password'
-                dispatch(loginFailed(error))
+
+        const response = await fetch(
+            'http://localhost:3001/api/v1/user/login',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: email, password: password }),
             }
-        } catch (error) {
-            console.error(error)
+        )
+        if (response.ok) {
+            const data = await response.json()
+            const token = data.body.token
+            dispatch(loginSuccess(token))
+            sessionStorage.setItem('token', token)
+            if (rememberMe) {
+                localStorage.setItem('token', token)
+            }
+            navigate('/profile')
+        } else {
+            setErrorMessage('Incorrect email/password')
         }
     }
     return (

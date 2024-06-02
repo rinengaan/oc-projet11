@@ -1,6 +1,6 @@
 /** @format */
 
-import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from '../actions/type.actions'
+import { LOGIN_SUCCESS, LOGOUT } from '../actions/type.actions'
 
 /* Initial state of authentication */
 const initialState = {
@@ -19,14 +19,6 @@ export const authReducer = (state = initialState, action) => {
                 token: action.payload,
                 error: null,
             }
-        case LOGIN_FAIL: {
-            return {
-                ...state,
-                status: 'FAILED',
-                isConnected: false,
-                error: action.payload,
-            }
-        }
         case LOGOUT: {
             return initialState
         }

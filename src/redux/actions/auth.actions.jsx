@@ -7,12 +7,7 @@ export const loginSuccess = (token) => {
         payload: token,
     }
 }
-export const loginFailed = (error) => {
-    return {
-        type: LOGIN_FAIL,
-        payload: error,
-    }
-}
+
 export const logout = () => {
     return {
         type: LOGOUT,
